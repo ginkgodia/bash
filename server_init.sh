@@ -14,7 +14,7 @@ init_Bashenv() {
 # part2 配置ntp时间服务器，并禁用monlist 功能，方式ntp攻击 
 init_Ntp() {
     `cp ntp_conf /etc/ntp.conf `
-    ` service ntpd restart `
+     service ntpd restart
 }
 
 # part3 修改默认端口并配置防火墙策略
@@ -39,7 +39,7 @@ add_Kernel_Rules(){
 }
 
 
-show_menus(){
+show_menus() {
 cat << EOF
 [Base Envirment]
 1) init_Bashenv    2) init_Ntp 
@@ -52,8 +52,6 @@ EOF
 
 show_menus
 while [[ "$index" != "Q" ]]
-echo $?
-echo $index
 do 
     echo "Please input your choice: \n"
     read -p "" index
@@ -62,8 +60,8 @@ do
     2) init_Ntp ;;
     3) init_Firewalld ;;
     4) add_Kernel_Rules ;;
-    S) show_menus;;
-    Q) break;;
+    S) show_menus ;;
+    Q) echo "exiting ...." ;;
     *) echo "Input Error";;
     esac
 done
