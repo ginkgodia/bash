@@ -1,0 +1,14 @@
+driftfile /var/lib/ntp/drift
+restrict default kod nomodify notrap nopeer noquery
+restrict -6 default kod nomodify notrap nopeer noquery
+restrict 127.0.0.1
+restrict -6 ::1
+restrict 172.16.1.0 mask 255.255.255.0 nomodify notrap
+fudge 127.127.1.0 stratum 10
+server 202.120.2.101
+server 1.centos.pool.ntp.org
+server 2.centos.pool.ntp.org
+restrict default noquery kod nomodify nopeer
+includefile /etc/ntp/crypto/pw
+keys /etc/ntp/keys
+disable monitor
